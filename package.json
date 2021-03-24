@@ -1,16 +1,14 @@
 {
-  "name": "webpack-babel-typescript-boilerplate",
+  "name": "phaser-boilerplate",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "node src/main.ts",
     "build": "webpack --env NODE_ENV=production",
     "start": " webpack serve --open --env NODE_ENV=development"
   },
   "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.13.10",
-    "@babel/plugin-transform-typescript": "^7.13.0",
     "@babel/preset-env": "^7.13.12",
     "@babel/preset-typescript": "^7.13.0",
     "babel-loader": "^8.2.2",
@@ -22,6 +20,7 @@
     "webpack-merge": "^5.7.3"
   },
   "dependencies": {
-    "core-js": "^3.9.1"
+    "core-js": "^3.9.1",
+    "phaser": "^3.53.1"
   }
 }

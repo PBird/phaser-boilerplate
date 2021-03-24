@@ -6,14 +6,20 @@ module.exports = {
   output: {
     filename: "[name].bundle.js",
     path: path.resolve(__dirname, "../dist"),
+    assetModuleFilename: "assets/[hash][ext][query]",
     clean: true,
   },
   module: {
     rules: [
       {
-        test: /\.ts?$/,
+        test: /\.ts$/,
         loader: "babel-loader",
       },
+      {
+        test: /\.(gif|png|jpe?g|svg|xml)$/i,
+        type: "asset/resource",
+      },
+
       //   {
       //     test: /\.js$/,
       //     enforce: "pre",
@@ -27,6 +33,11 @@ module.exports = {
     }),
   ],
   resolve: {
-    extensions: [".mjs", ".js", ".json", "ts"],
+    extensions: [".mjs", ".js", ".json", ".ts"],
+  },
+  optimization: {
+    splitChunks: {
+      chunks: "all",
+    },
   },
 };

@@ -4,7 +4,6 @@ const devConfig = require("./configs/webpack.config.dev");
 const prodConfig = require("./configs/webpack.config.prod");
 
 module.exports = (env) => {
-  console.log("deneme");
   switch (env.NODE_ENV) {
     case "development":
       return merge(baseConfig, devConfig);

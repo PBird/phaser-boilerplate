@@ -1,16 +1,35 @@
-console.log("Test code");
+import Phaser from "phaser";
+import logoImg from "./assets/logo.png";
 
-const el = document.getElementById("test") as HTMLParagraphElement;
+class MyGame extends Phaser.Scene {
+  constructor() {
+    super("Scene");
+  }
 
-el.innerText = "deneme 12121 ";
+  preload() {
+    this.load.image("logo", logoImg);
+  }
 
-async function test() {
-  console.log("test 1234");
+  create() {
+    const logo = this.add.image(400, 150, "logo");
+
+    this.tweens.add({
+      targets: logo,
+      y: 450,
+      duration: 1000,
+      ease: "Power2",
+      yoyo: true,
+      loop: -1,
+    });
+  }
 }
 
-let { x, y, ...z } = { x: 1, y: 2, a: 3, b: 4 };
-console.log(x); // 1
-console.log(y); // 2
-console.log(z); // { a: 3, b: 4 }
+const config: Phaser.Types.Core.GameConfig = {
+  type: Phaser.AUTO,
+  parent: "phaser-example",
+  width: 800,
+  height: 600,
+  scene: MyGame,
+};
 
-test();
+const game = new Phaser.Game(config);

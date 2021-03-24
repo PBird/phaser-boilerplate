@@ -1,1 +1,1 @@
-# webpack-babel-typescript-boilerplate
+# phaser-boilerplate
